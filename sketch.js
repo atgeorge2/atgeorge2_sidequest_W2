@@ -15,14 +15,14 @@ let blob3 = {
 
   // Time values for breathing animation
   t: 0,
-  tSpeed: 0.005,
+  tSpeed: 0.1,
 
   // Physics: velocity
   vx: 0, // Horizontal velocity
   vy: 0, // Vertical velocity
 
   // Movement tuning
-  accel: 1, // Horizontal acceleration
+  accel: 2, // Horizontal acceleration
   maxRun: 10.0, // Maximum horizontal speed
   gravity: 0.65, // Downward force
   jumpV: -11.0, // Initial jump impulse
@@ -31,8 +31,8 @@ let blob3 = {
   onGround: false, // True when standing on a platform
 
   // Friction
-  frictionAir: 2, // Light friction in air
-  frictionGround: 1.5, // Stronger friction on ground
+  frictionAir: 1, // Light friction in air
+  frictionGround: 0.9, // Stronger friction on ground
 };
 
 // List of solid platforms the blob can stand on
