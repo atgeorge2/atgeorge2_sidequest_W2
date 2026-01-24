@@ -9,7 +9,7 @@ let blob3 = {
 
   // Visual properties
   r: 26, // Base radius
-  points: 48, // Number of points used to draw the blob
+  points: 24, // Number of points used to draw the blob
   wobble: 30, // Edge deformation amount
   wobbleFreq: 5,
 
@@ -23,16 +23,16 @@ let blob3 = {
 
   // Movement tuning
   accel: 2, // Horizontal acceleration
-  maxRun: 10.0, // Maximum horizontal speed
-  gravity: 0.65, // Downward force
-  jumpV: -11.0, // Initial jump impulse
+  maxRun: 30.0, // Maximum horizontal speed
+  gravity: 0.9, // Downward force
+  jumpV: -30.0, // Initial jump impulse
 
   // State
   onGround: false, // True when standing on a platform
 
   // Friction
-  frictionAir: 1, // Light friction in air
-  frictionGround: 0.9, // Stronger friction on ground
+  frictionAir: 0.99, // Light friction in air
+  frictionGround: 0.99, // Stronger friction on ground
 };
 
 // List of solid platforms the blob can stand on
@@ -52,10 +52,12 @@ function setup() {
   // Create platforms (floor + steps)
   platforms = [
     { x: 0, y: floorY3, w: width, h: height - floorY3 }, // floor
-    { x: 120, y: floorY3 - 70, w: 120, h: 12 }, // low step
-    { x: 300, y: floorY3 - 120, w: 90, h: 12 }, // mid step
-    { x: 440, y: floorY3 - 180, w: 130, h: 12 }, // high step
-    { x: 520, y: floorY3 - 70, w: 90, h: 12 }, // return ramp
+    { x: 120, y: floorY3 - 70, w: 40, h: 12 }, // low step
+    { x: 300, y: floorY3 - 120, w: 30, h: 12 }, // mid step
+    { x: 440, y: floorY3 - 180, w: 50, h: 12 }, // high step
+    { x: 520, y: floorY3 - 70, w: 30, h: 12 }, // return ramp
+    { x: 350, y: floorY3 - 200, w: 30, h: 12 }, //extra platform
+    { x: 180, y: floorY3 - 180, w: 30, h: 12 }, //extra platform
   ];
 
   // Start the blob resting on the floor
@@ -63,10 +65,10 @@ function setup() {
 }
 
 function draw() {
-  background(240);
+  background(255, 233, 212);
 
   // --- Draw all platforms ---
-  fill(200);
+  fill(247, 185, 125);
   for (const p of platforms) {
     rect(p.x, p.y, p.w, p.h);
   }
@@ -140,7 +142,7 @@ function draw() {
   drawBlobCircle(blob3);
 
   // --- HUD ---
-  fill(0);
+  fill(243, 71, 0);
   text("Move: A/D or ←/→  •  Jump: Space/W/↑  •  Land on platforms", 10, 18);
 }
 
